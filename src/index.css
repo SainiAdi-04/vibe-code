@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Meraz Festival - Cosmic Theme Design System */
+
+@layer base {
+:root {
+    /* Backgrounds */
+    --background: 38 30% 6%;
+    --foreground: 45 40% 96%;
+
+    --card: 40 28% 9%;
+    --card-foreground: 45 40% 96%;
+
+    --popover: 40 28% 9%;
+    --popover-foreground: 45 40% 96%;
+
+    /* Primary – Warm Gold */
+    --primary: 45 100% 60%;
+    --primary-foreground: 40 30% 8%;
+
+    /* Secondary – Magenta Pink */
+    --secondary: 330 90% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent – Soft Cyan */
+    --accent: 195 90% 55%;
+    --accent-foreground: 40 30% 8%;
+
+    /* Muted */
+    --muted: 38 18% 18%;
+    --muted-foreground: 40 10% 65%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 20%;
+    --input: 40 20% 20%;
+    --ring: 45 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom cosmic tones (warmer) */
+    --cosmic-deep: 38 35% 5%;
+    --cosmic-nebula: 42 45% 18%;
+    --cosmic-star: 45 100% 75%;
+    --cosmic-glow: 45 100% 60%;
+
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(
+      135deg,
+      hsl(45 100% 60% / 0.8),
+      hsl(330 90% 65% / 0.7)
+    );
+
+    --gradient-nebula: linear-gradient(
+      180deg,
+      hsl(42 45% 18% / 0.6),
+      transparent
+    );
+
+    --gradient-radial: radial-gradient(
+      ellipse at center,
+      hsl(45 100% 60% / 0.18),
+      transparent 70%
+    );
+
+    /* Shadows – softer & cinematic */
+    --shadow-glow: 0 0 60px hsl(45 100% 60% / 0.25);
+    --shadow-cosmic: 0 0 90px hsl(330 90% 65% / 0.18);
+
+    --sidebar-background: 38 30% 6%;
+    --sidebar-foreground: 45 40% 96%;
+    --sidebar-primary: 45 100% 60%;
+    --sidebar-primary-foreground: 40 30% 8%;
+    --sidebar-accent: 38 18% 18%;
+    --sidebar-accent-foreground: 45 40% 96%;
+    --sidebar-border: 40 20% 20%;
+    --sidebar-ring: 45 100% 60%;
+  }
+  .dark {
+    --background: 38 30% 6%;
+    --foreground: 45 40% 96%;
+
+    --card: 40 28% 9%;
+    --card-foreground: 45 40% 96%;
+
+    --popover: 40 28% 9%;
+    --popover-foreground: 45 40% 96%;
+
+    --primary: 45 100% 60%;
+    --primary-foreground: 40 30% 8%;
+
+    --secondary: 330 90% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 195 90% 55%;
+    --accent-foreground: 40 30% 8%;
+
+    --muted: 38 18% 18%;
+    --muted-foreground: 40 10% 65%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 20%;
+    --input: 40 20% 20%;
+    --ring: 45 100% 60%;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-container {
+    @apply relative w-full min-h-[300vh] overflow-hidden;
+    background: hsl(var(--background));
+  }
+  
+  .hero-canvas {
+    @apply fixed top-0 left-0 w-full h-full;
+    z-index: 0;
+  }
+  
+  .side-menu {
+    @apply fixed left-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-8;
+  }
+  
+  .menu-icon {
+    @apply flex flex-col gap-1.5 cursor-pointer p-2;
+  }
+  
+  .menu-icon span {
+    @apply w-6 h-0.5 bg-white/80 transition-all duration-300;
+  }
+  
+  .menu-icon:hover span {
+    @apply bg-primary;
+  }
+  
+  .vertical-text {
+    @apply text-xs tracking-[0.3em] text-white/50;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .hero-content {
+    @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-10;
+    pointer-events: none;
+  }
+  
+  .hero-title {
+    @apply text-[8vw] md:text-[10vw] lg:text-[12vw] font-black tracking-wider;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 80px hsl(var(--primary) / 0.5);
+  }
+  
+  .hero-subtitle {
+    @apply mt-6 md:mt-8;
+  }
+  
+  .subtitle-line {
+    @apply text-sm md:text-lg lg:text-xl text-white/70 leading-relaxed;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+  .scroll-progress {
+    @apply fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 text-white/50 text-xs tracking-widest;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .progress-track {
+    @apply w-24 h-0.5 bg-white/20 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-300;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+  
+  .scroll-sections {
+    @apply relative z-10;
+    margin-top: 100vh;
+  }
+  
+  .content-section {
+    @apply min-h-screen flex flex-col items-center justify-center px-4;
+  }
+  
+  /* Glowing effects */
+  .glow-text {
+    text-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--secondary) / 0.4);
+  }
+  
+  .glow-box {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.3), inset 0 0 30px hsl(var(--primary) / 0.1);
+  }
+  
+  /* Cosmic card */
+  .cosmic-card {
+    @apply relative bg-card/80 backdrop-blur-xl rounded-2xl border border-border/50 overflow-hidden;
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.1);
+  }
+  
+  .cosmic-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: var(--gradient-cosmic);
+    z-index: -1;
+  }
+  
+  .cosmic-card:hover::before {
+    @apply opacity-10;
+  }
+  
+  /* Animated border gradient */
+  .gradient-border {
+    @apply relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-px rounded-2xl;
+    background: var(--gradient-cosmic);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, #ffff00, #ffd700, #ffaa00, #ff8c00, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-cosmic {
+    background: linear-gradient(135deg, #ffff00, #ffaa00, #ff8c00, #ff6b35);
+  }
+  
+  .bg-gradient-cosmic-hover {
+    background: linear-gradient(135deg, #ffd700, #ff8c00, #ff6b35);
+  }
+  
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.15), transparent 70%);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--secondary) / 0.3);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
+
+/* Leaflet Map Styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.95);
+}
