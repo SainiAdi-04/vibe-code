@@ -10,8 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "install": "npm install --legacy-peer-deps"
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
