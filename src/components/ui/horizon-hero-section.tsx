@@ -568,12 +568,11 @@ export const HorizonHeroSection = () => {
       
       {/* Side menu */}
       <div ref={menuRef} className="side-menu hidden md:flex" style={{ visibility: 'hidden' }}>
-        <div className="menu-icon">
+        <div className="">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div className="vertical-text">MERAZ</div>
       </div>
 
       {/* Main content */}

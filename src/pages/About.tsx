@@ -3,6 +3,7 @@ import { Target, Users, Award, Heart } from 'lucide-react';
 import logoMeraz from '@/assets/logo_meraz.svg';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import TextBlockAnimation from '@/components/ui/text-block-animation';
 
 const About = () => {
   const timeline = [
@@ -47,7 +48,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent">
       <Navbar />
 
       {/* Hero Section */}
@@ -61,9 +62,11 @@ const About = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <img src={logoMeraz} alt="Meraz" className="w-16 h-16 mx-auto mb-6" />
-            <h1 className="font-orbitron text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">About Meraz</span>
-            </h1>
+            <TextBlockAnimation blockColor="#b89b76" duration={0.8} animateOnScroll={false}>
+              <h1 className="font-orbitron text-4xl md:text-6xl font-bold mb-6">
+                <span className="text-gradient">About Meraz</span>
+              </h1>
+            </TextBlockAnimation>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
               Meraz is the annual cultural festival of IIT Bhilai, a three-day extravaganza
               that brings together talent from across the nation. From soul-stirring music

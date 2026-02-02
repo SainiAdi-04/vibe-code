@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Calendar, Users, Star } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { LogoCarousel } from "@/components/ui/logo-carousel";
 import logoMeraz from '@/assets/logo_meraz.svg';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CountdownTimer } from '@/components/CountdownTimer';
 import { HorizonHeroSection } from '@/components/ui/horizon-hero-section';
+import TextBlockAnimation from '@/components/ui/text-block-animation';
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
@@ -41,15 +44,23 @@ const Index = () => {
     { src: gallery4, alt: 'Fashion Show' },
   ];
 
+  const demoLogos = [
+    { id: 1, name: "Swiggy", src: "https://cdn.simpleicons.org/swiggy/white" },
+    { id: 2, name: "Adidas", src: "https://cdn.simpleicons.org/adidas/white" },
+    { id: 3, name: "Github", src: "https://cdn.simpleicons.org/nike/white" },
+    { id: 4, name: "Dominos", src: "https://cdn.simpleicons.org/onlyfans/white" },
+    { id: 5, name: "Zomato", src: "https://cdn.simpleicons.org/zomato/white" },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navbar />
 
       {/* Three.js Hero Section */}
       <HorizonHeroSection />
 
       {/* Content after hero scroll */}
-      <div className="relative z-10 bg-background">
+      <div className="relative z-10">
         {/* Countdown Section */}
         <section className="py-20 md:py-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-radial opacity-50" />
@@ -61,9 +72,11 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-orbitron text-3xl md:text-5xl font-bold mb-4">
-                <span className="text-gradient">The Countdown Begins</span>
-              </h2>
+              <TextBlockAnimation blockColor="#b89b76" duration={0.7}>
+                <h2 className="font-orbitron text-3xl md:text-5xl font-bold mb-4">
+                  <span className="text-gradient">The Countdown Begins</span>
+                </h2>
+              </TextBlockAnimation>
               <p className="text-muted-foreground text-lg">
                 March 15-17, 2025 • IIT Bhilai
               </p>
@@ -130,9 +143,11 @@ const Index = () => {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-orbitron text-3xl md:text-5xl font-bold mb-4">
-                <span className="text-gradient">Glimpses of Glory</span>
-              </h2>
+              <TextBlockAnimation blockColor="#c9ad82" duration={0.7}>
+                <h2 className="font-orbitron text-3xl md:text-5xl font-bold mb-4">
+                  <span className="text-gradient">Glimpses of Glory</span>
+                </h2>
+              </TextBlockAnimation>
               <p className="text-muted-foreground text-lg">
                 Moments that define the spirit of Meraz
               </p>
@@ -194,9 +209,11 @@ const Index = () => {
               className="cosmic-card p-8 md:p-16 text-center max-w-4xl mx-auto"
             >
               <img src={logoMeraz} alt="Meraz" className="w-16 h-16 mx-auto mb-6" />
-              <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-4">
-                Ready to Experience the Magic?
-              </h2>
+              <TextBlockAnimation blockColor="#d8b98f" duration={0.8}>
+                <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-4">
+                  Ready to Experience the Magic?
+                </h2>
+              </TextBlockAnimation>
               <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
                 Don't miss out on the biggest cultural extravaganza of the year.
                 Secure your spot and be part of something extraordinary.
@@ -221,6 +238,22 @@ const Index = () => {
                 </Link>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Sponsors Section */}
+        <section className="py-12 relative z-10">
+          <div className="container mx-auto px-4">
+            <Card className="border-0 bg-transparent shadow-none">
+              <CardContent className="pt-6">
+                <div className="text-center space-y-4 mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-none font-orbitron text-gradient">
+                    Proudly Sponsored By
+                  </h2>
+                </div>
+                <LogoCarousel logos={demoLogos} />
+              </CardContent>
+            </Card>
           </div>
         </section>
 

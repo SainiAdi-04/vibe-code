@@ -8,6 +8,7 @@ import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
 import gallery4 from '@/assets/gallery-4.jpg';
+import TextBlockAnimation from '@/components/ui/text-block-animation';
 
 interface GalleryImage {
   id: number;
@@ -115,9 +116,11 @@ const Gallery = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8"
           >
+            <TextBlockAnimation blockColor="#d8b98f" duration={0.7} animateOnScroll={false}>
             <h2 className="font-orbitron text-2xl md:text-3xl font-bold mb-2">
               <span className="text-gradient">Festival Highlights</span>
             </h2>
+            </TextBlockAnimation>
             <p className="text-gradient text-base font-medium">
               Scroll through our best moments
             </p>

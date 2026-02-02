@@ -9,7 +9,9 @@ import About from "./pages/About";
 import Passes from "./pages/Passes";
 import Gallery from "./pages/Gallery";
 import Venue from "./pages/Venue";
+import TextAnimationDemo from "./pages/TextAnimationDemo";
 import NotFound from "./pages/NotFound";
+
 
 const queryClient = new QueryClient();
 
@@ -21,13 +23,17 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/passes" element={<Passes />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/venue" element={<Venue />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+
+          {/* Routes with Spiral Animation Background */}
+          <Route>
+            <Route path="/events" element={<Events />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/passes" element={<Passes />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/venue" element={<Venue />} />
+            <Route path="/text-animation-demo" element={<TextAnimationDemo />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

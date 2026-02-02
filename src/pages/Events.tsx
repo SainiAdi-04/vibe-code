@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { EventCard, Event } from '@/components/EventCard';
+import TextBlockAnimation from '@/components/ui/text-block-animation';
 
 const categories = ['All', 'Music', 'Dance', 'Drama', 'Art', 'Literary', 'Fashion', 'Gaming'];
 
@@ -140,16 +141,18 @@ const Events = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-radial opacity-50" />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="font-orbitron text-4xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">Explore Events</span>
-            </h1>
+            <TextBlockAnimation blockColor="#d8b98f" duration={0.7} animateOnScroll={false}>
+              <h1 className="font-orbitron text-4xl md:text-6xl font-bold mb-4">
+                <span className="text-gradient">Explore Events</span>
+              </h1>
+            </TextBlockAnimation>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Discover and register for exciting competitions, performances, and activities
             </p>
@@ -196,11 +199,10 @@ const Events = () => {
                 <Badge
                   key={category}
                   variant={selectedCategory === category ? 'default' : 'outline'}
-                  className={`cursor-pointer px-4 py-2 text-sm transition-all ${
-                    selectedCategory === category
-                      ? 'bg-gradient-cosmic border-none'
-                      : 'border-border/50 hover:border-primary/50'
-                  }`}
+                  className={`cursor-pointer px-4 py-2 text-sm transition-all ${selectedCategory === category
+                    ? 'bg-gradient-cosmic border-none'
+                    : 'border-border/50 hover:border-primary/50'
+                    }`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -220,11 +222,10 @@ const Events = () => {
                   <Badge
                     key={category}
                     variant={selectedCategory === category ? 'default' : 'outline'}
-                    className={`cursor-pointer px-3 py-1.5 text-xs transition-all ${
-                      selectedCategory === category
-                        ? 'bg-gradient-cosmic border-none'
-                        : 'border-border/50'
-                    }`}
+                    className={`cursor-pointer px-3 py-1.5 text-xs transition-all ${selectedCategory === category
+                      ? 'bg-gradient-cosmic border-none'
+                      : 'border-border/50'
+                      }`}
                     onClick={() => {
                       setSelectedCategory(category);
                       setShowFilters(false);

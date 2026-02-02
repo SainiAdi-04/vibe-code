@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import TextBlockAnimation from '@/components/ui/text-block-animation';
 
 interface Pass {
   id: string;
@@ -91,9 +92,11 @@ const Passes = () => {
             className="text-center mb-12"
           >
             <img src={logoMeraz} alt="Meraz" className="w-16 h-16 mx-auto mb-6" />
-            <h1 className="font-orbitron text-4xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">Get Your Pass</span>
-            </h1>
+            <TextBlockAnimation blockColor="#c9ad82" duration={0.8} animateOnScroll={false}>
+              <h1 className="font-orbitron text-4xl md:text-6xl font-bold mb-4">
+                <span className="text-gradient">Get Your Pass</span>
+              </h1>
+            </TextBlockAnimation>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Choose your journey through the cosmic celebration.
               Early bird discounts available for a limited time!
